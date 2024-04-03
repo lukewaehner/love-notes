@@ -7,12 +7,12 @@
   fill: transparent;
   stroke: var(--pink);
   stroke-width: 20;
+  z-index: 999;
   cursor: pointer;
   position: relative;
 
   svg {
     overflow: visible;
-    z-index: 999;
   }
 
   path {

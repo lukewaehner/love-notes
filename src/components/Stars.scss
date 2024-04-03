@@ -1,79 +1,140 @@
-$glitter-star: "https://firebasestorage.googleapis.com/v0/b/codepen-asset.appspot.com/o/valentine-animation%2Fglitter-star.svg?alt=media&token=0b693d8e-e569-4567-8827-10f8c25dbbdd";
-$glitter-star-sm: "https://firebasestorage.googleapis.com/v0/b/codepen-asset.appspot.com/o/valentine-animation%2Fglitter-star-sm.svg?alt=media&token=13e65b1f-d181-4266-ac34-97485789e1af";
-$glitter-star-xs: "https://firebasestorage.googleapis.com/v0/b/codepen-asset.appspot.com/o/valentine-animation%2Fglitter-star-xs.svg?alt=media&token=0516d117-d8c2-4c0e-b0f8-e468b33ede05";
-$heart-xs-1: "https://firebasestorage.googleapis.com/v0/b/codepen-asset.appspot.com/o/valentine-animation%2Fheart-xs-1.svg?alt=media&token=c8ee973c-fd7a-4b18-b7cf-fd260962768c";
-$heart-xs-2: "https://firebasestorage.googleapis.com/v0/b/codepen-asset.appspot.com/o/valentine-animation%2Fheart-xs-2.svg?alt=media&token=e542fc9c-87de-4817-a42e-3a23c42e9e92";
-$heart-xs-3: "https://firebasestorage.googleapis.com/v0/b/codepen-asset.appspot.com/o/valentine-animation%2Fheart-xs-4.svg?alt=media&token=a9aca079-9b66-4d27-83fa-a2cbf4f97df8";
-$heart-xs-4: "https://firebasestorage.googleapis.com/v0/b/codepen-asset.appspot.com/o/valentine-animation%2Fheart-xs-5.svg?alt=media&token=71ca3b0c-8715-4484-92e7-b027edd71631";
-$heart-sm: "https://firebasestorage.googleapis.com/v0/b/codepen-asset.appspot.com/o/valentine-animation%2Fheart-sm.svg?alt=media&token=2750292c-92fd-41de-8e1d-d8814119a602";
-$heart-lg: "https://firebasestorage.googleapis.com/v0/b/codepen-asset.appspot.com/o/valentine-animation%2Fheart-lg.svg?alt=media&token=aabe9399-f03f-44de-9b55-99025b2981a3";
-
-$pink-300: rgba(221, 84, 133, 1);
-$pink-800: rgba(132, 22, 72, 1);
-$white: rgba(255, 255, 255, 1);
-
-@function random-image-generator($url, $density) {
-  $position-horizontal: random(100);
-  $position-vertical: random(100);
-
-  $bg-items: "url(#{$url}) #{$position-horizontal}% #{$position-vertical}% no-repeat";
-  @for $i from 2 through $density {
-    $position-horizontal: random(100);
-    $position-vertical: random(100);
-
-    $bg-items: "#{$bg-items}, url(#{$url}) #{$position-horizontal}% #{$position-vertical}% no-repeat";
-  }
-  @return unquote($bg-items);
+:root {
+  --primary-color: #4ec0e9;
+  --secondary-color: #cdd2da;
+  --success-color: #4acfae;
+  --info-color: #5f9cec;
+  --warning-color: #ffce52;
+  --danger-color: #ed5464;
+  --primary-color-darker: #3aafd9;
+  --secondary-color-darker: #a9b1bc;
+  --success-color-darker: #37be9c;
+  --info-color-darker: #4b8add;
+  --warning-color-darker: #fcba40;
+  --danger-color-darker: #da4453;
+  --primary-color-lighter: #a9e0f4;
+  --secondary-color-lighter: #e7eaee;
+  --success-color-lighter: #9ae4d2;
+  --info-color-lighter: #bbd5f7;
+  --warning-color-lighter: #ffebb8;
+  --danger-color-lighter: #f7b1b8;
+  --secondary-color-darkest: #444b55;
+  --secondary-color-lightest: #fafafa;
 }
-
-@mixin random-images(
-  $img-url,
-  $z-index,
-  $blur,
-  $density,
-  $speed,
-  $delay,
-  $initial-position,
-  $animation
-) {
-  background: random-image-generator($img-url, $density);
-  height: 100vh;
-  width: 100%;
-  filter: blur($blur);
-  z-index: $z-index;
-  position: absolute;
-  transform: translateY($initial-position);
-  animation: $animation linear $speed $delay infinite;
-}
-
-#star-group-1 {
-  @include random-images($glitter-star, 60, 0px, 6, 1.8s, 0s, 0%, glitter);
-}
-
-#star-group-2 {
-  @include random-images($glitter-star-sm, 60, 0px, 6, 1s, 0s, 0%, glitter);
-}
-#star-group-3 {
-  @include random-images($glitter-star-xs, 60, 0px, 20, 1.9s, 0s, 0%, glitter);
-}
-
-@keyframes glitter {
-  0% {
-    opacity: 0;
-  }
-  70% {
-    opacity: 0.4;
-  }
-  100% {
-    opacity: 0;
+@mixin sp-layout {
+  @media screen and (max-width: 750px) {
+    @content;
   }
 }
 
-.container {
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+  overflow: hidden;
+}
+
+@function random_range($min, $max) {
+  $rand: random();
+  $random_range: $min + floor($rand * (($max - $min) + 1));
+  @return $random_range;
+}
+
+.stars {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
   top: 0;
   left: 0;
-  z-index: -1;
+  width: 100%;
+  height: 120%;
+  transform: rotate(-45deg);
+}
+
+.star {
+  $star-count: 2;
+  --star-color: var(--primary-color);
+  --star-tail-length: 6em;
+  --star-tail-height: 2px;
+  --star-width: calc(var(--star-tail-length) / 6);
+  --fall-duration: 9s;
+  --tail-fade-duration: var(--fall-duration);
+
+  position: absolute;
+  top: var(--top-offset);
+  left: 0;
+  width: var(--star-tail-length);
+  height: var(--star-tail-height);
+  color: var(--star-color);
+  background: linear-gradient(45deg, currentColor, transparent);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px currentColor);
+  transform: translate3d(104em, 0, 0);
+  animation: fall var(--fall-duration) var(--fall-delay) linear infinite,
+    tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+
+  @include sp-layout {
+    // For mobile performance, tail-fade animation will be removed QAQ
+    animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
+  }
+
+  @for $i from 1 through $star-count {
+    &:nth-child(#{$i}) {
+      --star-tail-length: #{random_range(500em, 750em) / 100};
+      --top-offset: #{random_range(0vh, 10000vh) / 100};
+      --fall-duration: #{random_range(6000, 12000s) / 1000};
+      --fall-delay: #{random_range(0, 10000s) / 1000};
+    }
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: calc(var(--star-width) / -2);
+    width: var(--star-width);
+    height: 100%;
+    background: linear-gradient(45deg, transparent, currentColor, transparent);
+    border-radius: inherit;
+    animation: blink 2s linear infinite;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes fall {
+  to {
+    transform: translate3d(-30em, 0, 0);
+  }
+}
+
+@keyframes tail-fade {
+  0%,
+  50% {
+    width: var(--star-tail-length);
+    opacity: 1;
+  }
+
+  70%,
+  80% {
+    width: 0;
+    opacity: 0.4;
+  }
+
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.6;
+  }
 }
