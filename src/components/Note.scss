@@ -1,0 +1,24 @@
+// Card.scss
+.note {
+  padding: 20px;
+  width: 40vw;
+  height: 35vh;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  border: 3px solid #e0e0e0;
+  margin-top: 20px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // Add more styles as needed
+}
+
+.note p {
+  font-size: 1.5rem;
+  font-weight: 750;
+  color: #333;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: -1px -1px 0 #5f5e5f; /* Outline effect */
+}
