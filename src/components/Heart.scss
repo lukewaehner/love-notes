@@ -12,7 +12,6 @@
 
   svg {
     overflow: visible;
-    width: 10rem;
     z-index: 999;
   }
 
@@ -115,10 +114,20 @@
   }
 }
 
-.card {
-  pointer-events: none;
-  z-index: 999;
-  background-color: pink;
-  border-radius: 10px;
-  padding: 1rem;
+@media (max-width: 480px) {
+  .icon {
+    max-width: 90%;
+  }
+  .heart-main {
+    position: relative;
+  }
+  .heart-background {
+    position: absolute;
+    top: 0;
+  }
+  .heart-main,
+  .heart-background {
+    max-height: 25vh;
+    width: auto;
+  }
 }

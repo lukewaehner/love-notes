@@ -7,6 +7,7 @@ body {
   justify-content: center;
   align-items: center;
   background: #0b1522;
+  overflow: hidden;
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -22,3 +23,11 @@ code {
 }
 
 /* Add more global styles as needed */
+@media (max-width: 450px) {
+  body {
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+  }
+}
