@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/love-notes/static/css/main.14a37955.css",
-    "main.js": "/love-notes/static/js/main.656b4278.js",
+    "main.css": "/love-notes/static/css/main.5346db35.css",
+    "main.js": "/love-notes/static/js/main.98cff3ec.js",
     "static/media/mouse_bg.jpeg": "/love-notes/static/media/mouse_bg.57b01c8f76390ce674e5.jpeg",
     "static/media/kitty_bg.jpeg": "/love-notes/static/media/kitty_bg.6c6b218a907e27e85346.jpeg",
     "static/media/fox_bg.jpg": "/love-notes/static/media/fox_bg.5a73dd585d309c73d920.jpg",
     "static/media/puppy_corner.jpeg": "/love-notes/static/media/puppy_corner.c46b0e545912e2d20be9.jpeg",
     "index.html": "/love-notes/index.html",
-    "main.14a37955.css.map": "/love-notes/static/css/main.14a37955.css.map",
-    "main.656b4278.js.map": "/love-notes/static/js/main.656b4278.js.map"
+    "main.5346db35.css.map": "/love-notes/static/css/main.5346db35.css.map",
+    "main.98cff3ec.js.map": "/love-notes/static/js/main.98cff3ec.js.map"
   },
   "entrypoints": [
-    "static/css/main.14a37955.css",
-    "static/js/main.656b4278.js"
+    "static/css/main.5346db35.css",
+    "static/js/main.98cff3ec.js"
   ]
 }
