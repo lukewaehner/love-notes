@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/love-notes/static/css/main.f89d2757.css",
-    "main.js": "/love-notes/static/js/main.ad48236a.js",
+    "main.css": "/love-notes/static/css/main.98aa909c.css",
+    "main.js": "/love-notes/static/js/main.714538e2.js",
     "static/media/IMG1.png": "/love-notes/static/media/IMG1.a407ee023e722869fd87.png",
     "static/media/IMG2.png": "/love-notes/static/media/IMG2.0275326f5ad368e9f314.png",
     "static/media/IMG8.png": "/love-notes/static/media/IMG8.e8813ed93a6d62e7834f.png",
@@ -21,11 +21,11 @@
     "static/media/fox_bg.jpg": "/love-notes/static/media/fox_bg.5a73dd585d309c73d920.jpg",
     "static/media/puppy_corner.jpeg": "/love-notes/static/media/puppy_corner.c46b0e545912e2d20be9.jpeg",
     "index.html": "/love-notes/index.html",
-    "main.f89d2757.css.map": "/love-notes/static/css/main.f89d2757.css.map",
-    "main.ad48236a.js.map": "/love-notes/static/js/main.ad48236a.js.map"
+    "main.98aa909c.css.map": "/love-notes/static/css/main.98aa909c.css.map",
+    "main.714538e2.js.map": "/love-notes/static/js/main.714538e2.js.map"
   },
   "entrypoints": [
-    "static/css/main.f89d2757.css",
-    "static/js/main.ad48236a.js"
+    "static/css/main.98aa909c.css",
+    "static/js/main.714538e2.js"
   ]
 }
