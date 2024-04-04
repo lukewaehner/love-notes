@@ -1,0 +1,109 @@
+.homepage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+}
+.card-link {
+  text-decoration: none;
+  margin: 10px;
+  color: inherit;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  height: 45vh;
+  width: 20vw;
+  margin: 10px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  perspective: 200px;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent; /* Adjust border size as needed */
+    border-radius: 8px; /* Match the card's border-radius */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-out;
+    z-index: 0;
+  }
+
+  &:hover::before {
+    border-color: lightgray; /* Border expands to be visible */
+  }
+}
+
+.card-content {
+  position: relative;
+  z-index: 1; /* Ensures content is above the pseudo-element */
+}
+
+.card-image {
+  max-width: 15vw;
+  max-height: 15vw;
+  object-fit: cover;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  margin-bottom: 15%;
+  transition: transform 0.5s ease;
+  transform-origin: center top;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: rgb(221, 219, 219);
+  font-weight: 600;
+  font-family: "Inter", inter, Inter;
+}
+
+.card:hover .card-image {
+  transform: scale(1.1) rotateX(-15deg) rotateY(5deg); /* Adjust scale and rotation values as needed */
+  z-index: 2; /* Ensures the image is above other content; may not be necessary depending on your layout */
+}
+
+/* Base styles above */
+
+@media (max-width: 768px) {
+  .homepage {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Stretch children to match the container's width */
+  }
+
+  .card {
+    width: calc(100%); /* Take full width minus margin/padding */
+    height: auto; /* Adjust height automatically based on content */
+    margin: 10px; /* Adjust margin as needed */
+    padding: 20px 5px; /* Adjust padding as needed */
+  }
+
+  .card-image {
+    display: inline-block;
+    margin-bottom: 5%;
+  }
+
+  .card-title {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+
+  /* Adjust any other styles for mobile here */
+}

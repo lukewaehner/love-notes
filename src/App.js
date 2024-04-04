@@ -1,16 +1,20 @@
 import React from "react";
-import Heart from "./components/Heart"; // Adjust the path as needed to import the Heart component
-import Stars from "./components/Stars"; // Adjust the path as needed to import the Stars component
-import "./App.css"; // Assuming you have some App-specific styles
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./components/HomePage/HomePage";
+import LoveNotes from "./components/LoveNotes/LoveNotes";
+import ImageCarousel from "./components/ImageCarousel/ImageCarousel";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Heart />
-        <Stars />
-      </header>
-    </div>
+    <Router basename="/love-notes">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/LoveNotes" element={<LoveNotes />} />
+        <Route path="/ImageCarousel" element={<ImageCarousel />} />
+        {/* Add more routes as needed */}
+      </Routes>
+    </Router>
   );
 }
 
